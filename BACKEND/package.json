@@ -2,9 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "zreo hunger apllication",
-  "main": "index.js",
+  "main": "Server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "babel-node": "nodemon --exec babel-node -- Server.js"
   },
   "author": "Namila,Rajitha,Bimsara,Sandali",
   "license": "ISC",
@@ -14,9 +15,6 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.0.3"
-  },
-  "script": {
-    "babel-node": "nodemon --exec babel-node -- Server.js"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
