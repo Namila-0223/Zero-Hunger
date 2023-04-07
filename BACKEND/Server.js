@@ -15,10 +15,10 @@ const url = process.env.MONGODB_URL;
 global.URI = url;
 
 mongoose.connect(url, {
-  //useCreateIndex: true,
+  useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  //useFindAndModify: false
+  useFindAndModify: false
 })
 
 const connection = mongoose.connection;
@@ -30,7 +30,6 @@ connection.once("open", () => {
 
 
 const donaters_register = require('./routes/Donater/Dregister_routes')
-
 app.use("/donaters_register" , donaters_register);
 
 // const teacher_register = require('./routes/Register/teachers_register')  
