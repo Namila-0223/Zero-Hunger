@@ -28,10 +28,10 @@ let donaters_register = require("../../models/Donater/Dregister_model");
     });
 
      await newDonaterRegister.save().then(() => {
-         res.json("Student Registration Success!");
+         res.json("Registration Success!");
      }).catch((err) => {
          console.log(err);
-         res.json("Student Registration Failed!");
+         res.json("Registration Failed!");
      })
 });
 
@@ -92,7 +92,7 @@ router.put("/update/:id", async function (req, res){
     }
 
     donaters_register.findByIdAndUpdate(userId, updatedonaters_register).then(() =>{
-        res.status(200).send({status: "User updated"})
+        res.status(200).send({status: "User Updated Success!"})
 
     }).catch((err) => {
         console.log(err);
@@ -136,7 +136,7 @@ router.delete("/delete/:id", async (req, res) => {
     let userId = req.params.id;
 
     await donaters_register.findByIdAndDelete(userId).then(() => {
-        res.status(200).send({status: "user deleted"});
+        res.status(200).send({status: "User Deleted Success!"});
     }).catch((err) => {
         console.log(err.message);
         res.status(500).send({status: "Error with deleted", error:err.message});
