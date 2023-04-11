@@ -1,7 +1,7 @@
-const mongoose = require ('mongoose');
+import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
-
-const RequestedItemsSchema = mongoose.Schema({
+const RequestedItemsSchema = Schema({
     Full_name:{
         type: String,
         required: true
@@ -30,4 +30,4 @@ const RequestedItemsSchema = mongoose.Schema({
 
 )
 const RequestedItems = mongoose.model('RequestedItems',RequestedItemsSchema)
-module.exports = RequestedItems;
+export default RequestedItems;
