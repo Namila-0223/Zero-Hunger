@@ -2,10 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "zreo hunger apllication",
-  "main": "index.js",
+  "main": "Server.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon server.js",
     "dev": "node server.js"
+    "babel-node": "nodemon --exec babel-node -- Server.js"
   },
   "author": "Namila,Rajitha,Bimsara,Sandali",
   "license": "ISC",
@@ -20,5 +22,12 @@
     "mongoose": "^7.0.3",
     "mongoose-validation-error-message-handler": "^1.2.7",
     "nodemon": "^2.0.22"
+    "pino": "^8.11.0",
+    "pino-pretty": "^10.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2"
   }
 }
