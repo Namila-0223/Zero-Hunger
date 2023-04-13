@@ -15,10 +15,10 @@ const url = process.env.MONGODB_URL;
 global.URI = url;
 
 mongoose.connect(url, {
-  useCreateIndex: true,
+  // useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false
+  // useFindAndModify: false
 })
 
 const connection = mongoose.connection;

@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-// const { id } = require("date-fns/locale");
+const { id } = require("date-fns/locale");
 const bcrypt = require('bcryptjs');
 let donaters_register = require("../../models/Donater/Dregister_model");
 // let profile = require("../../model/register/profile_model");
@@ -9,20 +9,19 @@ let donaters_register = require("../../models/Donater/Dregister_model");
 
  router.post("/addDonater",async function (req, res) {
     const Name = req.body.Name;
-    const address = req.body.address;
-    const email = req.body.email;
+    const Address = req.body.Address;
+    const Email = req.body.Email;
     const ContactNumber = req.body.ContactNumber;
-    const password = req.body.password;
-    const confirmPassword = req.body.confirmPassword;
+    const Password = req.body.Password;
+   
     
 
     const newDonaterRegister = new donaters_register({
         Name,
-        address,
-        email,
+        Address,
+        Email,
         ContactNumber,
-        password,
-        confirmPassword
+        Password
     
         
     });
@@ -37,13 +36,13 @@ let donaters_register = require("../../models/Donater/Dregister_model");
 
 //log in
 router.route('/login').post((req, res, next) => {
-  var userName = req.body.userName;
-  var password = req.body.password;
+  var Email = req.body.Email;
+  var Password = req.body.Password;
 
-  systemReg.findOne({$or: [{userName:userName}]})
+  systemReg.findOne({$or: [{Email:Email}]})
   .then(systemreg =>{
       if(systemreg){
-              bcrypt.compare(password, systemreg.password, function(err, result){
+              bcrypt.compare(Password, systemreg.Password, function(err, result){
                   if(err){
                       res.json({
                           error:err
@@ -76,19 +75,18 @@ router.put("/update/:id", async function (req, res){
     let userId = req.params.id;
     const{
         Name,
-        address,
-        email,
+        Address,
+        Email,
         ContactNumber,
-        password,
-        confirmPassword } = req.body;
+        password } = req.body;
 
     const updatedonaters_register = {
         Name,
-        address,
-        email,
+        Address,
+        Email,
         ContactNumber,
         password,
-        confirmPassword
+    
     }
 
     donaters_register.findByIdAndUpdate(userId, updatedonaters_register).then(() =>{
@@ -116,20 +114,20 @@ router.get("/",async(req,res)=> {
 });
 
 //fecth
-router.get("/get/:id",async(req,res) => { // get data from frontend via request. async function is used to increase the performance 
-    let userId = req.params.id; //fetch the id parameter in url
+// router.get("/get/:id",async(req,res) => { // get data from frontend via request. async function is used to increase the performance 
+//     let userId = req.params.id; //fetch the id parameter in url
 
-  await donaters_register.findById(userId).exec(function(err,result){
-    if(err){
-        res.json({"err":"Something went wrong"})
-    } else{
-        res.json({donater:result})
-    }
+//   await donaters_register.findById(userId).exec(function(err,result){
+//     if(err){
+//         res.json({"err":"Something went wrong"})
+//     } else{
+//         res.json({donater:result})
+//     }
   
-  }) //pass two parameters(userid,object that store seller data) and find user by id and update relevent data
+//   }) //pass two parameters(userid,object that store seller data) and find user by id and update relevent data
   
 
-})
+// })
 
 //delete data implementation from database
 router.delete("/delete/:id", async (req, res) => {
@@ -144,16 +142,16 @@ router.delete("/delete/:id", async (req, res) => {
 })
 
 // fetch/read data of one user only
-// router.get("/get/:id",async (req, res) => {
-//     let userId = req.params.id;
-//     console.log(userId);
-//     const user = await donaters_register.findById(userId)
-//     .then(() => {
-//         res.status(200).send({status: "user fetched", user: user})
-//     }).catch(() => {
-//         res.status(500).send({status: "Error with get user"});
-//     })
-// })
+router.get("/get/:id",async (req, res) => {
+    let userId = req.params.id;
+    console.log(userId);
+    const user = await donaters_register.findById(userId)
+    .then(() => {
+        res.status(200).send({status: "user fetched", user: user})
+    }).catch(() => {
+        res.status(500).send({status: "Error with get user"});
+    })
+})
 
 
 

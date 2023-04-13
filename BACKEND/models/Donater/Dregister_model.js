@@ -9,7 +9,13 @@ const donaters_register = new Schema({
         required : true
     },
 
-    email : {
+    Address :
+    {
+        type : String,
+        required : true
+    },
+
+    Email : {
         type : String,
         required : true
     },
@@ -19,15 +25,12 @@ const donaters_register = new Schema({
         required : true
     },
 
-    password: {
+    Password: {
         type : String,
         required : true
     },
     
-    confirmPassword : {
-        type : String,
-        required : true
-    },
+
 
 })
 //send data to the database routes

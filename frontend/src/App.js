@@ -10,7 +10,11 @@ function App() {
     <div className="App">
       <AppHeader />
       <div className="SideMenuAndPageContent">
+      <Routes>
+          <Route path="/" element={<Homepage/>}/>
+        </Routes>
         <SideMenu></SideMenu>
+        
         <PageContent></PageContent>
       </div>
       <AppFooter />
