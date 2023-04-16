@@ -5,7 +5,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Card, Space, Statistic, Table, Typography } from "antd";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 // import { getCustomers, getInventory, getOrders, getRevenue } from "../../API";
 
 import {
@@ -29,10 +29,10 @@ ChartJS.register(
 );
 
 function Homee() {
-  const [orders, setOrders] = useState(0);
-  const [inventory, setInventory] = useState(0);
-  const [customers, setCustomers] = useState(0);
-  const [revenue, setRevenue] = useState(0);
+  // const [orders, setOrders] = useState(0);
+  // const [inventory, setInventory] = useState(0);
+  // const [customers, setCustomers] = useState(0);
+  // const [revenue, setRevenue] = useState(0);
 
   // useEffect(() => {
   //   getOrders().then((res) => {
@@ -63,8 +63,8 @@ function Homee() {
               }}
             />
           }
-          title={"Orders"}
-          value={orders}
+          // title={"Orders"}
+          // value={orders}
         />
         <DashboardCard
           icon={
@@ -78,8 +78,8 @@ function Homee() {
               }}
             />
           }
-          title={"Inventory"}
-          value={inventory}
+          // title={"Inventory"}
+          // value={inventory}
         />
         <DashboardCard
           icon={
@@ -93,8 +93,8 @@ function Homee() {
               }}
             />
           }
-          title={"Customer"}
-          value={customers}
+          // title={"Customer"}
+          // value={customers}
         />
         <DashboardCard
           icon={
@@ -108,8 +108,8 @@ function Homee() {
               }}
             />
           }
-          title={"Revenue"}
-          value={revenue}
+          // title={"Revenue"}
+          // value={revenue}
         />
       </Space>
       <Space>
@@ -131,8 +131,8 @@ function DashboardCard({ title, value, icon }) {
   );
 }
 function RecentOrders() {
-  const [dataSource, setDataSource] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [dataSource, setDataSource] = useState([]);
+  // const [loading, setLoading] = useState(false);
 
   // useEffect(() => {
   //   setLoading(true);
@@ -160,19 +160,19 @@ function RecentOrders() {
             dataIndex: "discountedPrice",
           },
         ]}
-        loading={loading}
-        dataSource={dataSource}
-        pagination={false}
+        // loading={loading}
+        // dataSource={dataSource}
+        // pagination={false}
       ></Table>
     </>
   );
 }
 
 function DashboardChart() {
-  const [reveneuData, setReveneuData] = useState({
-    labels: [],
-    datasets: [],
-  });
+  // const [reveneuData, setReveneuData] = useState({
+  //   labels: [],
+  //   datasets: [],
+  // });
 
   // useEffect(() => {
   //   getRevenue().then((res) => {
@@ -213,8 +213,10 @@ function DashboardChart() {
 
   return (
     <Card style={{ width: 500, height: 250 }}>
-      <Bar options={options} data={reveneuData} />
+      <Bar options={options}  /> 
     </Card>
   );
 }
 export default Homee;
+
+// data={reveneuData}
