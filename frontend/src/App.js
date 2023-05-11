@@ -6,17 +6,23 @@ import {
     Route
 } from "react-router-dom";
 import "./App.css";
-import Homepage from "./Pages/Dashboard/homee";
-import AppFooter from "./Components/AppFooter";
-import AppHeader from "./Components/AppHeader";
-import PageContent from "./Components/PageContent";
-import SideMenu from "./Components/SideMenu";
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import Sidebar from './Sidebar'
-import Home from './Home'
-import { useState } from 'react'
+// import Homepage from "./Pages/Dashboard/homee";
+// import AppFooter from "./Components/AppFooter";
+// import AppHeader from "./Components/AppHeader";
+// import PageContent from "./Components/PageContent";
+// import SideMenu from "./Components/SideMenu";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import Sidebar from './Sidebar';
+import Home from './Home';
+import { useState } from 'react';
+import HomePage from "./pages/HomePage";
+import RequesterSignIn from "./components/Donator/requesterSignIn";
+import RequesterSignUp from "./components/Donator/requesterSignUp";
+import Dcard from "./components/Donator/Dcard";
+
+
 
 function App() {
   const [toggle, setToggle] = useState(true)
@@ -26,8 +32,20 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <AppHeader />
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/signin" element={<RequesterSignIn/>}/>
+          <Route path="/signup" element={<RequesterSignUp/>}/>
+          <Route path="/dcard" element={<Dcard/>}/>
+          
+        </Routes>
+      </BrowserRouter>
+
+
+
+      {/* <AppHeader />
       <div className="SideMenuAndPageContent">
       <Routes>
           <Route path="/" element={<Homepage/>}/>
@@ -36,8 +54,8 @@ function App() {
         
         <PageContent></PageContent>
       </div>
-      <AppFooter />
-    <div className='container-fluid bg-secondary min-vh-100 '>
+      <AppFooter /> */}
+    {/* <div className='container-fluid bg-secondary min-vh-100 '>
       <div className='row '>
         {toggle && 
           <div className='col-4 col-md-2 bg-white vh-100 position-fixed'>
@@ -51,7 +69,7 @@ function App() {
           <Home Toggle={Toggle}/>
         </div>
       </div>
-    </div>
+    </div> */}
     </div>
   )
 }
