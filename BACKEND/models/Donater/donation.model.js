@@ -6,11 +6,6 @@ const donationSchema = new Schema({
     type: String,
     required: true,
   },
-  status: {
-    type: String,
-    required: true,
-    default: "pending",
-  },
   donationTitle: {
     type: String,
     required: true,
@@ -26,11 +21,6 @@ const donationSchema = new Schema({
   donationDescription: {
     type: String,
     required: true,
-  },
-  donationImage: {
-    type: String,
-    required: true,
-    default: "https://i.postimg.cc/4yT0N7m2/Donation.jpg",
   },
   numberOfRequests: {
     type: Number,

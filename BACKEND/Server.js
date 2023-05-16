@@ -1,18 +1,9 @@
-// import express from "express";
-// import cors from "cors";
 import 'dotenv/config';
-import logger from "./src/utils/logger.js";
-import {connect} from "./src/utils/database.connection.js";
-import StoreItems from "./src/api/models/store_items.js";
-
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const credentials = require("./middleware/credentials");
-const corsOptions = require("./config/corsOptions");
-
 
 const app = express();
 require("dotenv").config();
@@ -99,7 +90,7 @@ app.post("/store_items", async(req, res) => {
 
 //-------------------------DONATOR----------------------------
 
-const loginRouter = require("./routes/login");
+const loginRouter = require("./routes/login").default;
 app.use("/main", loginRouter);
 
 //donator routes

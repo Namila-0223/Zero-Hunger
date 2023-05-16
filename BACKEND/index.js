@@ -16,16 +16,22 @@ app.use(credentials);
 app.use(cors(corsOptions));
 app.use(express.json({ limit: "30mb", extended: true }));
 
-
-// //admin routes
-// const adminRouter = require("./routes/admin/admin.routes");
-// app.use("/admin", adminRouter);
+//admin routes
+const adminRouter = require("./routes/admin/admin.routes");
+app.use("/admin", adminRouter);
 
 //Login routes
 const loginRouter = require("./routes/login");
 app.use("/main", loginRouter);
 
-//donator routes
+// Organization
+const organizationRoutes = require("./routes/organization.routes");
+app.use("/organization", organizationRoutes);
+
+// Fund
+const fundRoutes = require("./routes/fund.routes");
+app.use("/fund", fundRoutes);
+
 const donatorRoutes = require("./routes/donator/donator.routes.js");
 app.use("/donator", donatorRoutes);
 
@@ -33,19 +39,8 @@ app.use("/donator", donatorRoutes);
 const requesterRoutes = require("./routes/requester.routes");
 app.use("/requester", requesterRoutes);
 
-//home routes
 const homeRoutes = require("./routes/home.routes");
 app.use("/home", homeRoutes);
-
-// // Organization
-// const organizationRoutes = require("./routes/organization.routes");
-// app.use("/organization", organizationRoutes);
-
-// // Fund
-// const fundRoutes = require("./routes/fund.routes");
-// app.use("/fund", fundRoutes);
-
-
 
 const URL = process.env.MONGODB_URL;
 
