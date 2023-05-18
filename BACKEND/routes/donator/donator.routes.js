@@ -2,7 +2,6 @@ const express = require("express");
 const { getAllDonations } = require("../../controllers/donator/allDonations");
 const { createDonation } = require("../../controllers/donator/createDonation");
 const { deleteDonation } = require("../../controllers/donator/deleteDonation");
-const { donateToFund } = require("../../controllers/donator/donateFund");
 const { editDonation } = require("../../controllers/donator/editDonation");
 const {
   getCompletedDonations,
@@ -42,7 +41,7 @@ router.get("/getRejectedDonations/:id", getRejectedDonations);
 router.get("/getOneDonation/:id", getOneDonationDetails);
 router.put("/updateDonation/:id", editDonation);
 router.post("/sendRequest", sendDonationRequest);
-router.post("/donateFund/:id", donateToFund);
+
 
 router.get("/getPendingRequests/:id", getPendingRequests);
 router.put("/acceptRequest/:id", acceptDonationRequest); 

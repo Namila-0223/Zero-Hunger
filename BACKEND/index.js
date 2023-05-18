@@ -9,7 +9,7 @@ const app = express();
 
 require("dotenv").config();
 
-const PORT = process.env.PORT || 8070;
+const PORT = process.env.PORT || 8090;
 
 app.use(credentials);
 
@@ -25,12 +25,12 @@ const loginRouter = require("./routes/login");
 app.use("/main", loginRouter);
 
 // Organization
-const organizationRoutes = require("./routes/organization.routes");
-app.use("/organization", organizationRoutes);
+// const organizationRoutes = require("./routes/organization.routes");
+// app.use("/organization", organizationRoutes);
 
 // Fund
-const fundRoutes = require("./routes/fund.routes");
-app.use("/fund", fundRoutes);
+// const fundRoutes = require("./routes/fund.routes");
+// app.use("/fund", fundRoutes);
 
 const donatorRoutes = require("./routes/donator/donator.routes.js");
 app.use("/donator", donatorRoutes);

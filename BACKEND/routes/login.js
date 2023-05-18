@@ -1,11 +1,11 @@
-import { Router } from "express";
+const express = require("express");
 
-import { handleLogin } from '../controllers/authController';
-import { createUser } from '../controllers/registerController';
+const{handleLogin,}=require('../controllers/authController');
+const{createUser,}=require('../controllers/registerController')
 
-const router=Router();
+const router=express.Router();
 
 router.post("/login",handleLogin)
 router.post("/register",createUser)
 
-export default router;
+module.exports = router;

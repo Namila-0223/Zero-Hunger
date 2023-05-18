@@ -1,5 +1,4 @@
 const Donation = require("../../models/donation.model");
-const Fund = require("../../models/fund.model");
 const RequestFund = require("../../models/requestFund.model");
 
 const getRandomDonations = async (req, res) => {

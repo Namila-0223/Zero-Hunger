@@ -7,6 +7,6 @@ const {
 const router = express.Router();
 
 router.get("/donations", getRandomDonations);
-router.get("/funds", getRandomFunds);
+// router.get("/funds", getRandomFunds);
 
 module.exports = router;

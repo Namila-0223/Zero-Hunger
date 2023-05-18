@@ -21,9 +21,11 @@ import HomePage from "./pages/HomePage";
 import RequesterSignIn from "./components/Donator/requesterSignIn";
 import RequesterSignUp from "./components/Donator/requesterSignUp";
 import Dcard from "./components/Donator/Dcard";
+import CreateDonation from "./components/Donator/createDonation";
 import Dash from "./dash/Dash";
 import Employee from "./Employee";
 import Customers from "./pages/Customers";
+import DonationHome from "./components/Donator/HomePage/donationHome";
 
 
 
@@ -45,6 +47,11 @@ function App() {
           <Route path="/dash" element={<Dash/>}/>
           <Route path="/emp" element={<Employee/>}/>
       <Route path="/customers" element={<Customers />}></Route>
+      <Route path="/createDonaion" element={<CreateDonation/>}/>
+      <Route path="/Dhome" element={<DonationHome/>}/>
+      
+
+
 
 
           

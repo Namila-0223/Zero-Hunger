@@ -35,7 +35,7 @@ const Employee = () => {
     const [id,setId] = useState("");
     const GetEmployeeData = () => {
         //here we will get all employee data
-        const url = 'http://localhost:8000/employee'
+        const url = 'http://localhost:8090/donator/getDonations'
         axios.get(url)
             .then(response => {
                 const result = response.data;
@@ -130,22 +130,25 @@ const Employee = () => {
                     <table className='table table-striped table-hover table-bordered'>
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>User Id</th>
+                                <th>Tital</th>
                                 <th>Email</th>
                                 <th>Number</th>
-                                <th>NIC</th>
-                                <th>Address</th>
+                                <th>Description</th>
+                                <th>Location</th>
+                                <th>Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {Data.map((item) =>
-                                <tr key={item._id}>
-                                    <td>{item.name}</td>
+                                <tr key={item.userID}>
+                                    <td>{item.donationTital}</td>
                                     <td>{item.email}</td>
-                                    <td>{item.number}</td>
-                                    <td>{item.nic}</td>
-                                    <td>{item.address}</td>
+                                    <td>{item.contactNumber}</td>
+                                    <td>{item.donationDescription}</td>
+                                    <td>{item.location}</td>
+                                    <td>{item.donationStartDate}</td>
                                     <td style={{ minWidth: 190 }}>
                                         <Button size='sm' variant='primary' onClick={() => { handleViewShow(SetRowData(item)) }}>View</Button>|
                                         <Button size='sm' variant='warning' onClick={()=> {handleEditShow(SetRowData(item),setId(item._id))}}>Edit</Button>|

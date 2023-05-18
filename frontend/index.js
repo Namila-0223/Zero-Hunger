@@ -13,12 +13,6 @@ import RequireAuth from "./components/RequireAuth";
 import { AuthProvider } from "./context/AuthProvider";
 import User from "./routes/user.routes";
 
-const ROLES = {
-  'User': 1984,
-  'Organization': 5150,
-  'Admin': 2001
-}
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

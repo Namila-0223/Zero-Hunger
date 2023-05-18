@@ -8,11 +8,11 @@ import { useRef, useState, useEffect, useContext } from "react";
 import useAuth from "../../hooks/useAuth";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-// import { API_URL } from '../../api/config';
+import { API_URL } from '../../api/config';
 const LOGIN_URL = "/main/login";
 
 export default function RequesterSignIn() {
-  const [cookies, setCookie] = useCookies(["access_token", "roles", "_id"]);
+  const [cookies, setCookie] = useCookies(["access_token", "_id"]);
   const Navigate = useNavigate();
 
   const { setAuth } = useAuth();
@@ -39,7 +39,7 @@ export default function RequesterSignIn() {
 
       try {
           console.log("HIIIII")
-          const response = await axios.post(LOGIN_URL,
+          const response = await axios.post(API_URL,
               JSON.stringify({ username, password }),
               {
                   headers: { 'Content-Type': 'application/json' },
@@ -49,43 +49,26 @@ export default function RequesterSignIn() {
           //console.log(JSON.stringify(response?.data));
           //console.log(JSON.stringify(response));
           const accessToken = response?.data?.accessToken;
-          const roles = response?.data?.roles;
           const _id=response?.data?._id;
 
           let expires = new Date()
           expires.setTime(expires.getTime() + (response.data.expires_in * 1000))
           setCookie('access_token', accessToken, { path: '/',  expires});
           console.log("QQQQQQQQQQQ")
-          setCookie('roles', roles ,{path: '/', expires});
           setCookie('uId', _id ,{path: '/', expires});
           console.log(_id)
           
-          if (roles==("5150")) {
-            Navigate('/organization/dashboard');
-          } else if (roles==("1984")){
-            Navigate(`/`);
-          }
+          // if (roles==("5150")) {
+          //   Navigate('/organization/dashboard');
+          // } else if (roles==("1984")){
+          //   Navigate(`/`);
+          // }
           
 
-          setAuth({ username, password, roles, accessToken });
+          setAuth({ username, password, accessToken });
           setUser('');
           setPwd('');
           setSuccess(true);
-
-          console.log(roles)
-
-          
-          // response?.data.roles == 5150 ?
-          // // navigate('/staff/home')
-          // window.location.replace('/staff/home')
-          // : (response?.data.roles == 1984 ?
-          //   // navigate('/student/dashboard')
-          //   window.location.replace('/student/dashboard')
-          //   : response?.data.roles == 2001 ?
-          //     // navigate('/admins/home')
-          //     window.location.replace('/admins/home')
-          //     : navigate('/unauthorized'))
-
 
 
 
@@ -109,7 +92,7 @@ export default function RequesterSignIn() {
     try {
       console.log("HIIIII");
       const response = await axios.post(
-        LOGIN_URL,
+        API_URL,
         JSON.stringify({ username, password }),
         {
           headers: { "Content-Type": "application/json" },
@@ -119,42 +102,28 @@ export default function RequesterSignIn() {
       //console.log(JSON.stringify(response?.data));
       //console.log(JSON.stringify(response));
       const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
       const _id = response?.data?._id;
 
       let expires = new Date();
       expires.setTime(expires.getTime() + response.data.expires_in * 1000);
       setCookie("access_token", accessToken, { path: "/", expires });
       console.log("QQQQQQQQQQQ");
-      setCookie("roles", roles, { path: "/", expires });
       setCookie("uId", _id, { path: "/", expires });
       console.log(_id);
 
-      if (roles == "5150") {
-        Navigate("/organization/dashboard");
-      } else if (roles == "1984") {
-        Navigate(`/`);
-      }else if (roles == "2001") {
-        Navigate(`/admin/dashboard`);
-      }
+      // if (roles == "5150") {
+      //   Navigate("/organization/dashboard");
+      // } else if (roles == "1984") {
+      //   Navigate(`/`);
+      // }else if (roles == "2001") {
+      //   Navigate(`/admin/dashboard`);
+      // }
 
-      setAuth({ username, password, roles, accessToken });
+      setAuth({ username, password, accessToken });
       setUser("");
       setPwd("");
       setSuccess(true);
 
-      console.log(roles);
-
-      // response?.data.roles == 5150 ?
-      // // navigate('/staff/home')
-      // window.location.replace('/staff/home')
-      // : (response?.data.roles == 1984 ?
-      //   // navigate('/student/dashboard')
-      //   window.location.replace('/student/dashboard')
-      //   : response?.data.roles == 2001 ?
-      //     // navigate('/admins/home')
-      //     window.location.replace('/admins/home')
-      //     : navigate('/unauthorized'))
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");

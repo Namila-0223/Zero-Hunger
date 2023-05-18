@@ -1,18 +1,18 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import CreateDonation from "../components/donator/createDonation";
-import DashboardCard from "../components/donator/DashboardComponents/dashboardCard";
-import ActiveDonations from "../components/donator/DashboardComponents/activeDonations";
-import DonatorCard from "../components/donator/donatorCard";
-import DonatorDashboard from "../components/donator/donatorDashboard";
-import EditDonation from "../components/donator/editDonation";
-import DonationView from "../components/donator/DonationView/donationView";
-import SeeRequests from "../components/donator/SeeRequests/seeRequests";
-import SendRequest from "../components/donator/SendRequest/sendRequest";
-import PendingDonationView from "../components/donator/PendingDonations/pendingDonationView";
-import RejectedDonationView from "../components/donator/RejectedDonations/rejectedDonationView";
-import AcceptedRequestView from "../components/donator/AcceptedRequests/acceptedRequestsView";
-import DonationHome from "../components/donator/HomePage/donationHome";
+import CreateDonation from "../components/Donator/createDonation";
+import DashboardCard from "../components/Donator/DashboardComponents/dashboardCard";
+import ActiveDonations from "../components/Donator/DashboardComponents/activeDonations";
+import DonatorCard from "../components/Donator/donatorCard";
+import DonatorDashboard from "../components/Donator/donatorDashboard";
+import EditDonation from "../components/Donator/editDonation";
+import DonationView from "../components/Donator/DonationView/donationView";
+import SeeRequests from "../components/Donator/SeeRequests/seeRequests";
+import SendRequest from "../components/Donator/SendRequest/sendRequest";
+import PendingDonationView from "../components/Donator/PendingDonations/pendingDonationView";
+import RejectedDonationView from "../components/Donator/RejectedDonations/rejectedDonationView";
+import AcceptedRequestView from "../components/Donator/AcceptedRequests/acceptedRequestsView";
+import DonationHome from "../components/Donator/HomePage/donationHome";
 
 export default function Donator() {
   return (
@@ -23,7 +23,7 @@ export default function Donator() {
         <Route path="/myDonations" element={<DonatorDashboard />} />
         <Route
           path="/dashboard/donator/editDonation/:id"
-          element={<EditDonation />}
+          element={<EditDonation />} 
         />
         <Route path="/dashboard/card" element={<DashboardCard />} />
         <Route path="/dashboard" element={<ActiveDonations />} />

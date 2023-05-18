@@ -20,7 +20,7 @@ export default function Dcard() {
     <div>
     <nav>
       <NavBar />
-    <MDBRow>
+    <MDBRow style={{"position":"align-center"}}>
       <MDBCol sm='6'>
         <MDBCard className='row-cols-1 row-cols-md-3 g-4'>
         <MDBCardImage overlay src='1.jpg'  style={{height:'500px'}}/>
@@ -30,18 +30,6 @@ export default function Dcard() {
               With supporting text below as a natural lead-in to additional content.
             </MDBCardText>
             <MDBBtn href='RequesterSignIn'>Go somewhere</MDBBtn>
-          </MDBCardOverlay>
-        </MDBCard>
-      </MDBCol>
-      <MDBCol sm='6'>
-        <MDBCard>
-        <MDBCardImage overlay src='2.jpg' alt='...'  style={{height:'500px'}}/>
-          <MDBCardOverlay>
-            <MDBCardTitle>Special title treatment</MDBCardTitle>
-            <MDBCardText>
-              With supporting text below as a natural lead-in to additional content.
-            </MDBCardText>
-            <MDBBtn href='RequesterSignUp'>Go somewhere</MDBBtn>
           </MDBCardOverlay>
         </MDBCard>
       </MDBCol>
