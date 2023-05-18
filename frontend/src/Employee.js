@@ -33,6 +33,22 @@ const Employee = () => {
     const [Delete,setDelete] = useState(false)
     //Id for update record and Delete
     const [id,setId] = useState("");
+    
+    const [datatable, setDatatable] = useState([]);
+    const [search, setSearch] = useState("");
+    const getReqOrgList = async () => {
+        try {
+          const data = await axios.get(`http://localhost:8090/donator/getDonations`);
+          setDatatable(data.data);
+        } catch (e) {
+          console.log(e);
+        }
+      };
+    
+      useEffect(() => {
+        getReqOrgList();
+      }, []);
+    
     const GetEmployeeData = () => {
         //here we will get all employee data
         const url = 'http://localhost:8090/donator/getDonations'

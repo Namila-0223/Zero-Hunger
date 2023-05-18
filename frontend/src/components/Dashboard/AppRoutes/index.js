@@ -13,6 +13,8 @@ function AppRoutes() {
       <Route path="/orders" element={<Orders />}></Route>
       <Route path="/customers" element={<Customers />}></Route>
       <Route path="/emp" element={<Employee/>}/>
+      <Route path="/rqs" element={<reqDo/>}/>
+
       
     </Routes>
   );

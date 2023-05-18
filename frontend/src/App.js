@@ -26,6 +26,7 @@ import Dash from "./dash/Dash";
 import Employee from "./Employee";
 import Customers from "./pages/Customers";
 import DonationHome from "./components/Donator/HomePage/donationHome";
+import GetRequestedDonations from "./components/Donator/reqDonationList";
 
 
 
@@ -49,6 +50,8 @@ function App() {
       <Route path="/customers" element={<Customers />}></Route>
       <Route path="/createDonaion" element={<CreateDonation/>}/>
       <Route path="/Dhome" element={<DonationHome/>}/>
+      <Route path="/req" element={<GetRequestedDonations/>}/>
+
       
 
 

@@ -18,6 +18,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import GetRequestedDonations from "../../components/Donator/reqDonationList";
 
 
 
@@ -216,10 +217,12 @@ function DashboardChart() {
     },
   };
 
-  return (
-    <Card style={{ width: 800, height: 425 }}>
-      <Bar options={options} data={reveneuData} />
-    </Card>
-  );
+  <GetRequestedDonations></GetRequestedDonations>
+
+  // return (
+  //   <Card style={{ width: 800, height: 425 }}>
+  //     <Bar options={options} data={reveneuData} />
+  //   </Card>
+  // );
 }
 export default Dashboard;
