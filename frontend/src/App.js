@@ -12,21 +12,26 @@ import "./App.css";
 // import PageContent from "./Components/PageContent";
 // import SideMenu from "./Components/SideMenu";
 import React from 'react';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Sidebar from './Sidebar';
 import Home from './Home';
 import { useState } from 'react';
 import HomePage from "./pages/HomePage";
-import RequesterSignIn from "./components/Donator/requesterSignIn";
-import RequesterSignUp from "./components/Donator/requesterSignUp";
+import RequesterSignIn from "./pages/donator/requesterSignIn";
+import RequesterSignUp from "./pages/donator/requesterSignUp";
 import Dcard from "./components/Donator/Dcard";
 import CreateDonation from "./components/Donator/createDonation";
 import Dash from "./dash/Dash";
-import Employee from "./Employee";
+// import Dona from "./pages/donator/Donationdetails";
 import Customers from "./pages/Customers";
 import DonationHome from "./components/Donator/HomePage/donationHome";
 import GetRequestedDonations from "./components/Donator/reqDonationList";
+import EditDonation from "./components/Donator/editDonation";
+import Donationdetails from "./pages/donator/Donationdetails";
+import DataView from "./components/Dataviwe";
 
 
 
@@ -46,18 +51,18 @@ function App() {
           <Route path="/signup" element={<RequesterSignUp/>}/>
           <Route path="/dcard" element={<Dcard/>}/>
           <Route path="/dash" element={<Dash/>}/>
-          <Route path="/emp" element={<Employee/>}/>
-      <Route path="/customers" element={<Customers />}></Route>
-      <Route path="/createDonaion" element={<CreateDonation/>}/>
-      <Route path="/Dhome" element={<DonationHome/>}/>
-      <Route path="/req" element={<GetRequestedDonations/>}/>
+          <Route path="/emp" element={<Donationdetails/>}/>
+          <Route path="/customers" element={<Customers />}/>
+          <Route path="/createDonaion" element={<CreateDonation/>}/>
+          <Route path="/Dhome" element={<DonationHome/>}/>
+          <Route path="/req" element={<GetRequestedDonations/>}/>
+          <Route path="/editDonation" element={<EditDonation/>}/>
+          <Route path="/data" element={<DataView/>}/>
 
-      
-
-
-
+        
 
           
+
         </Routes>
       </BrowserRouter>
 

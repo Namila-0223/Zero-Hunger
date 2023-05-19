@@ -35,6 +35,11 @@ const donationSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  donationImage: {
+    type: String,
+    required: true,
+    default: 'https://th.bing.com/th/id/R.d65cd274858cf1609c897c2af8ef0c6e?rik=y1eGb4gkOOPZFg&pid=ImgRaw&r=0',
+  },
   donationEndDate: {
     type: Date,
   },
