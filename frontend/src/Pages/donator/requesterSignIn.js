@@ -1,8 +1,8 @@
 import axios from "../../api/axios";
 import React from "react";
-// import Footer from "../Footer";
-import NavBar from "../NavBar";
-// import "./footer.css";
+import Footer from "../../components/Footer";
+import NavBar from "../../components/NavBar";
+import "../../components/footer.css";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect, useContext } from "react";
 import useAuth from "../../hooks/useAuth";
@@ -39,7 +39,7 @@ export default function RequesterSignIn() {
 
       try {
           console.log("HIIIII")
-          const response = await axios.post(API_URL,
+          const response = await axios.post('http://localhost:8090/main/login',
               JSON.stringify({ username, password }),
               {
                   headers: { 'Content-Type': 'application/json' },
@@ -143,14 +143,14 @@ export default function RequesterSignIn() {
   }
 
   return (
-    <div>
+    <div style={{"backgroundColor":"white"}}>
       <nav>
         <NavBar />
       </nav>
 
-      <div class="container d-flex justify-content-center pt-5 pb-5">
-        <div className="card card-signin z-index-0 fadeIn3 fadeInBottom ">
-          <form class="form-control p-5" onSubmit={handleSubmit}>
+      <div class="container d-flex justify-content-center pt-5 pb-5" >
+        <div className="card card-signin z-index-0 fadeIn3 fadeInBottom " style={{"backgroundColor":"violet"}}>
+          <form class="form-control p-5" onSubmit={handleSubmit} style={{"backgroundColor":"#99ccff"}}>
             <p class="h3 fw-bold text-center mb-2 pb-4 border-bottom">
               Sign in{" "}
             </p>
@@ -190,14 +190,10 @@ export default function RequesterSignIn() {
                 />
               </div>
             </div>
-            <p class="text-center mb-3 pt-2"> Don't you have an account? <Link to="/user/signup">Sign up</Link></p>
+            <p class="text-center mb-3 pt-2"> Don't you have an account? <Link to="/signup">Sign up</Link></p>
           </form>
         </div>
       </div>
-
-      <footer>
-        {/* <Footer /> */}
-      </footer>
     </div>
 
   );

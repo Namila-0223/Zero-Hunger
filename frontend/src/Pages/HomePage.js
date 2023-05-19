@@ -39,9 +39,9 @@ export default function HomePage() {
             <div class="carousel-inner">
               
                 <div class="carousel-item active">
-                <img src={Img1} class="d-block w-100" alt="Motorbike Smoke"/>
-                <div class="carousel-caption d-none d-md-block">
-                    <h1 >HELP  WITH  HUNGER <br />  BY  <br />  DONATING TODAY</h1>
+                <img src={Img3} style={{"blure":"20px"}} class="d-block w-100" alt="Motorbike Smoke"/>
+                <div class="carousel-caption d-none d-md-block" style={{"textAlign":"center"}}>
+                    <h1 style={{"textAlign":"left", "vertical-align": "top"  }} >HELP  WITH  HUNGER <br />  BY  <br />  DONATING TODAY</h1>
                     <h4>" If you cannot feed a hundred h4eople, Then feed just one ".</h4>
                     
                 </div>
@@ -121,12 +121,12 @@ export default function HomePage() {
             <h4 className='d-flex justify-content-center mb-4'>ABOUT FOOD BANK</h4>
 
             <div className='row mb-5'>
-                <div className='col-5'>
-                    <img className="img-about" src={Img4} />
+                <div className='col-7'>
+                    <img className="img-about" src={Img4} width={"750px"} height={"400px"} />
                 </div>
 
-                <div className='col-7'>
-                    <h6>A food bank is a non-profit, 
+                <div className='col-5' style={{"textAlign":"left"  }}>
+                    <h6 >A food bank is a non-profit, 
                         charitable organization that distributes food to those who have difficulty purchasing enough to avoid hunger, 
                         usually through intermediaries like food pantries and soup kitchens.
                          Some food banks distribute food directly with their own food pantries.<br /><br />
@@ -158,7 +158,7 @@ export default function HomePage() {
                     </h6>
                 </div>
                 <div className='col-5'>
-                    <img className="img-about" src={Img5} />
+                    <img className="img-about" src={Img5} width={"550px"} height={"400px"}/>
                 </div>
 
 

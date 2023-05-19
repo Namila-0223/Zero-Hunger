@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 // import RequesterProfile from "../components/requester/requesterProfile";
-import RequesterSignIn from "../components/Donator/requesterSignIn";
+import RequesterSignIn from "../pages/donator/requesterSignIn";
 import RequesterSignUp from "../components/Donator/requesterSignUp";
 // import RequesterProfileUpdate from "../components/requester/updateProfileDetails";
 

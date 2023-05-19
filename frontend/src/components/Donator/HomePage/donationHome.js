@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import {
   getAllDonations,
-  markDonationAsCompleted,
 } from "../../../api/donator.api";
 import { getCookie } from "../../common/getCookie";
 import LoadingSpinner from "../../common/LoadingSpinner";
@@ -11,38 +10,35 @@ import Footer from "../../Footer";
 import NavBar from "../../NavBar";
 // import DonationDescription from "../DonationView/DonationViewComponents/DonationDescription";
 import DonationHomeCard from "./donationHomeCard";
+import AppHeader from "../../Dashboard/AppHeader";
 
 export default function DonationHome() {
   const [userId, setUserId] = useState("");
   const navigate = useNavigate();
-  const markAsCompleted = (id) => {
-    // console.log(id);
-    if (userId == false) {
-      //     swal()
-      //
-      swal({
-        title: "You are not logged in !!",
-        text: "Please login to create a donation",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      }).then((willDelete) => {
-        if (willDelete) {
-          navigate("../../user/signin");
-        }
-      });
-    } else {
-      navigate("../createDonation");
-    }
-  };
+  // const markAsCompleted = (id) => {
+  //   // console.log(id);
+  //   if (userId == false) {
+  //     //     swal()
+  //     //
+  //     swal({
+  //       title: "You are not logged in !!",
+  //       text: "Please login to create a donation",
+  //       icon: "warning",
+  //       buttons: true,
+  //       dangerMode: true,
+  //     }).then((willDelete) => {
+  //       if (willDelete) {
+  //         navigate("/signin");
+  //       }
+  //     });
+  //   } else {
+  //     navigate("/createDonation");
+  //   }
+  // };
   useEffect(() => {
     setUserId(getCookie("uId"));
   }, []);
-  // const create = ()=>{
-  //   if(userId==false){
-  //     swal()
-  //   }
-  // }
+  
   const [loading, setLoading] = useState(false);
   const [donation, setDonation] = useState([]);
   const [searchTerm, setsearchTerm] = useState("");
@@ -67,7 +63,7 @@ export default function DonationHome() {
   return (
     <>
       <div class="overflow-hidden" style={{}}>
-        <NavBar />
+        <AppHeader />
         {loading ? (
           <div
             style={{
@@ -114,9 +110,9 @@ export default function DonationHome() {
                 {/* <div></div>
                 <h2>All Donations</h2>
                 <div></div> */}
-                <button className="btn btn-primary " onClick={markAsCompleted}>
+                {/* <button className="btn btn-primary " onClick={markAsCompleted}>
                   Create A Donation
-                </button>
+                </button> */}
               </div>
             </div>
 
@@ -161,124 +157,6 @@ export default function DonationHome() {
                         userid={f.email}
                         description={f.donationDescription}
                       />
-                      {/* <div
-                        class="card"
-                        style={{
-                          width: "18rem",
-                        }}
-                      > */}
-                      {/* <img
-                          class="card-img-top"
-                          src={f.donationImage}
-                          alt="Card image cap"
-                          style={{
-                            width: "100%",
-                            height: 150,
-                          }}
-                        />
-                        <div class="card-body">
-                          <h5 class="card-title">{f.donationTitle}</h5>
-                          <div
-                            className="para"
-                            style={{
-                              width: "100%",
-                              //   height: 40,
-                              display: "inline-block",
-                              textOverflow: "ellipsis",
-                              overflow: "hidden",
-                              whiteSpace: "nowrap",
-                            }}
-                          > */}
-                      {/* <div
-                              class="row"
-                              style={{
-                                marginBottom: 30,
-                                marginTop: 20,
-                              }}
-                            >
-                              <div class="col">
-                                <div
-                                  className="row"
-                                  style={{
-                                    paddingLeft: 20,
-                                  }}
-                                >
-                                  <div className="col-1">
-                                    <i
-                                      className="material-icons opacity-10 "
-                                      style={{
-                                        color: "green",
-                                      }}
-                                    >
-                                      location_on
-                                    </i>
-                                  </div>
-
-                                  <div className="col-3">{f.location}</div>
-                                </div>
-                              </div>
-                              <div class="col">
-                                <div
-                                  className="row"
-                                  style={{
-                                    paddingLeft: 90,
-                                  }}
-                                >
-                                  <div
-                                    className="col-3"
-                                    style={{
-                                      marginRight: 5,
-                                    }}
-                                  >
-                                    <i
-                                      className="material-icons opacity-10 "
-                                      style={{
-                                        color: "blue",
-                                      }}
-                                    >
-                                      group
-                                    </i>
-                                  </div>
-
-                                  <div className="col-9">
-                                    {f.numberOfRequests} Requests
-                                  </div>
-                                </div>
-                              </div>
-                            </div> */}
-                      {/* <div class="d-flex justify-content-around">
-                              <i
-                                className="material-icons opacity-10 "
-                                style={{
-                                  color: "green",
-                                }}
-                              >
-                                location_on
-                              </i>
-                              <div>{f.location}</div>
-                              <i
-                                className="material-icons opacity-10 "
-                                style={{
-                                  color: "green",
-                                }}
-                              >
-                                location_on
-                              </i>
-                              <div>{f.numberOfRequests}</div>
-                            </div> */}
-                      {/* <div>{f.donationDescription}</div> */}
-                      {/* <p
-              class="card-text"
-              style={{
-                textOverflow: "ellipsis",
-              }}
-            >
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p> */}
-                      {/* </div> */}
-                      {/* </div> */}
-                      {/* </div> */}
                     </Link>
                   );
                 })}

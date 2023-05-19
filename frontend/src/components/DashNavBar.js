@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Logo from "../assets/images/logo1.png";
 import { Link, useNavigate } from "react-router-dom";
 import { getCookie } from "./common/getCookie";
 import { getUserDonations } from "../api/donator.api";
 
-export default function NavBar() {
+export default function DashNavBar() {
   const [userId, setUserId] = useState("");
   const navigate = useNavigate()
   const [showDonations, setShowDonations] = useState(false);
@@ -33,7 +32,7 @@ export default function NavBar() {
     document.cookie = "uId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    navigate("signin");
+    navigate("/user/signin");
 
 };
 
@@ -41,7 +40,7 @@ export default function NavBar() {
     <div>
       <div id="navbar_top" className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-          <img className="img-navbar" style={{"height":"50px"}} src={Logo} />
+          {/* <img className="img-navbar" src={Logo} /> */}
           <button
             className="navbar-toggler"
             type="button"
@@ -66,7 +65,7 @@ export default function NavBar() {
                 </a>
               </li>
               <li className="nav-item ms-3">
-                <a className="nav-link" href="/Dhome">
+                <a className="nav-link" href="/donator/home">
                   Donations
                 </a>
               </li>
@@ -75,8 +74,7 @@ export default function NavBar() {
                   Fund Requests
                 </a>
               </li>
-              {userId ? (
-                <li className="nav-item dropdown ms-3">
+              <li className="nav-item dropdown ms-3">
                   <a
                     className="nav-link dropdown-toggle"
                     href="#"
@@ -137,13 +135,6 @@ export default function NavBar() {
                     </Link>
                   </ul>
                 </li>
-              ) : (
-                <li className="nav-item ms-3">
-                  <a className="nav-link" href="/signin">
-                    Login
-                  </a>
-                </li>
-              )}
             </ul>
           </div>
         </div>

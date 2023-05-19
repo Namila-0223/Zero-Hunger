@@ -19,7 +19,7 @@ function SideMenu() {
 
   const navigate = useNavigate();
   return (
-    <div className="SideMenu" style={{"width": "200px"}}>
+    <div className="SideMenu" style={{"width": "250px"}}>
       <Menu
         className="SideMenuVertical" style={{"fontSize":"18px"}}
         mode="vertical"
@@ -35,17 +35,17 @@ function SideMenu() {
             key: "/dash",
           },
           {
-            label: "Inventory",
+            label: "Item Donation",
             key: "/emp",
             icon: <ShopOutlined />,
           },
           {
-            label: "Orders",
+            label: "Money Doantion",
             key: "/orders",
             icon: <ShoppingCartOutlined />,
           },
           {
-            label: "Customers",
+            label: "Peofile",
             key: "/customers",
             icon: <UserOutlined />,
           },

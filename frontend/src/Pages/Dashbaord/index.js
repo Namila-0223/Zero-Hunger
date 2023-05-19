@@ -18,7 +18,8 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import GetRequestedDonations from "../../components/Donator/reqDonationList";
+
+import Donationdetails from "../donator/Donationdetails";
 
 
 
@@ -53,10 +54,10 @@ function Dashboard() {
   return (
    <>
   
-    <Space size={20} direction="vertical">
+    <Space size={10} direction="vertical">
       <Typography.Title level={4}>Dashboard</Typography.Title>
-      <Space direction="horizontal" size={10}>
-        <DashboardCard 
+      <Space direction="horizontal" size={90}>
+        {/* <DashboardCard 
           icon={
             <ShoppingCartOutlined
               style={{
@@ -70,7 +71,7 @@ function Dashboard() {
           }
           title={"Orders"}
           value={orders}
-        />
+        /> */}
         <DashboardCard
           icon={
             <ShoppingOutlined
@@ -86,7 +87,7 @@ function Dashboard() {
           title={"Inventory"}
           value={inventory}
         />
-        <DashboardCard
+        {/* <DashboardCard
           icon={
             <UserOutlined
               style={{
@@ -100,7 +101,7 @@ function Dashboard() {
           }
           title={"Customer"}
           value={customers}
-        />
+        /> */}
         <DashboardCard
           icon={
             <DollarCircleOutlined
@@ -120,6 +121,7 @@ function Dashboard() {
       <Space>
         {/* <RecentOrders /> */}
         <DashboardChart />
+        <Donationdetails/>
       </Space>
     </Space>
     </>
@@ -217,8 +219,7 @@ function DashboardChart() {
     },
   };
 
-  <GetRequestedDonations></GetRequestedDonations>
-
+ 
   // return (
   //   <Card style={{ width: 800, height: 425 }}>
   //     <Bar options={options} data={reveneuData} />

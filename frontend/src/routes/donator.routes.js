@@ -21,10 +21,7 @@ export default function Donator() {
         <Route path="/card" element={<DonatorCard />} />
         <Route path="/createDonation" element={<CreateDonation />} />
         <Route path="/myDonations" element={<DonatorDashboard />} />
-        <Route
-          path="/dashboard/donator/editDonation/:id"
-          element={<EditDonation />} 
-        />
+        <Route path="/dashboard/donator/editDonation/:id" element={<EditDonation />}  />
         <Route path="/dashboard/card" element={<DashboardCard />} />
         <Route path="/dashboard" element={<ActiveDonations />} />
         <Route path="/view/:id" element={<DonationView />} />

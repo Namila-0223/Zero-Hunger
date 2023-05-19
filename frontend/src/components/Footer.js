@@ -1,6 +1,7 @@
+// import React from "react";
 import React from "react";
 // import Logo2 from "../assets/images/logo-2-white.png";
-import "./footer.css";
+import "../components/footer.css";
 
 function Footer() {
   return (

@@ -3,7 +3,7 @@ import FileBase64 from "react-file-base64";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { newDonation } from "../../api/donator.api";
-import NavBar from "../NavBar";
+// import NavBar from "../NavBar";
 // import DonatorDashboard from "./donatorDashboard";
 
 import LoadingSpinner from "../common/LoadingSpinner";
@@ -86,7 +86,7 @@ export default function CreateDonation() {
   return (
     <>
       {/* <span class="mask bg-gradient-dark opacity-6"></span> */}
-      <NavBar />
+      
       {loading ? (
         <div
           style={{
@@ -152,19 +152,6 @@ export default function CreateDonation() {
                       />
                     </div>
                     <div class="input-group mb-3 input-group input-group-outline mb-3">
-                      {/* <input
-                      type="number"
-                      class="form-control"
-                      placeholder="Contact Number*"
-                      aria-label="Contact Number"
-                      aria-describedby="basic-addon1"
-                      maxlength="10"
-                      pattern="\d{10}"
-                      onChange={(e) => {
-                        setContactNumber(e.target.value);
-                      }}
-                      required
-                    /> */}
                       <input
                         type="text"
                         placeholder="Contact Number*"
@@ -258,7 +245,6 @@ export default function CreateDonation() {
           marginTop: 100,
         }}
       >
-        <Footer />
       </div>
     </>
   );

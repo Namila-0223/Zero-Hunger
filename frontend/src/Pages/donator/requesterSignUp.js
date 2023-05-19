@@ -3,8 +3,9 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-import Footer from '../Footer';
-import NavBar from '../NavBar';
+import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
+
 
 export default function RequesterSignUp() {
 
@@ -30,7 +31,7 @@ export default function RequesterSignUp() {
     axios.post("http://localhost:8090/requester/requesterSignup", signup).then((res) => {
       swal("Succesfully Signed up", "", "success").then((value) => {
         if (value) {
-          navigate("../signin");
+          navigate("/dash");
         }
       });
     }).catch((err) => {
@@ -53,11 +54,11 @@ export default function RequesterSignUp() {
     <div class="container d-flex justify-content-center pt-5 pb-5">
 
       
-    <div className="card z-index-0 fadeIn3 fadeInBottom ">
-    <div className="card-body">
-        <form className="form-control" onSubmit={registerUser}> 
+    <div className="card z-index-0 fadeIn3 fadeInBottom " style={{"backgroundColor":"violet"}}>
+    <div className="card-body" style={{"backgroundColor":"#b3d9ff"}} >
+        <form className="form-control" onSubmit={registerUser} style={{"backgroundColor":"#99ccff"}} > 
           <p className="h3 fw-bold text-center mb-2 pt-4">Sign up for start supporting </p>
-          <p className="text-center mb-5"> Do you work for an organization? <Link to="/organization/new">Signup here</Link></p> 
+          <p className="text-center mb-5"> Already have an account <Link to="/signin">signin</Link></p> 
 
             <div className="row input-group input-group-outline m-0 px-4"> 
               <div className="col-md-6 mb-4 ps-0"> 
@@ -139,10 +140,6 @@ export default function RequesterSignUp() {
         </div>
       </div>
       </div>
-
-  <footer>
-    <Footer />
-  </footer>
   </div>
   )
 }

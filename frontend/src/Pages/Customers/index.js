@@ -1,6 +1,7 @@
 import { Avatar, Rate, Space, Table, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { getCustomers, getInventory } from "../../API copy";
+import SideMenu from "../../components/Dashboard/SideMenu";
 
 function Customers() {
   const [loading, setLoading] = useState(false);
