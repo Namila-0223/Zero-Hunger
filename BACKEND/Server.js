@@ -15,7 +15,7 @@ app.get("/", (req, res, next) => {
     res.send("<h1>Welcome</h1>");
     next();
 });
-///////////////////////////// API FOR REQUESTER DETAILS
+///////////////////////////// API FOR STORE DETAILS
 //Get method(retrieve/find method)
 app.get('/store_items', async (req, res) => {
     try {
