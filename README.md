@@ -15,9 +15,12 @@ We helped many peoples and will help to many needy peoples across the world.
 
 User Groups identified – Admin, Donators, Different Organizations, needy peoples
 
+Used Technologies are - MERN / SQL / MongoDB / JavaSCript / CSS / HTML
+
+Intend to publish a research paper at the https://journal.ubpkarawang.ac.id/index.php/bit-cs/focus-scope
+
 Group members,
 Rupasinghe H.M.N.P	IT20651688
 Kumara A.R.M	IT20653804
 Dharana H.A.B	IT20655020
 Abeywickrama S.A	IT20646042
-
