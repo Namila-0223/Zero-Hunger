@@ -72,7 +72,7 @@ export default function NavBar() {
               </li>
               <li className="nav-item ms-3">
                 <a className="nav-link" href="/requester/all/requests">
-                  Fund Requests
+                  Volunteers
                 </a>
               </li>
               {userId ? (

@@ -84,7 +84,7 @@ function Dashboard() {
               }}
             />
           }
-          title={"Inventory"}
+          title={"Item"}
           value={inventory}
         />
         {/* <DashboardCard
@@ -114,7 +114,7 @@ function Dashboard() {
               }}
             />
           }
-          title={"Revenue"}
+          title={"Money"}
           value={revenue}
         />
       </Space>

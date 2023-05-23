@@ -34,21 +34,21 @@ const router = express.Router();
 router.post("/createDonation", validate("createDonation"), createDonation);
 router.get("/getDonations", getAllDonations);
 router.delete("/deleteDonation/:id", deleteDonation);
-router.get("/getCompletedDonations/:id", getCompletedDonations);
-router.get("/getOngoingDonations/:id", getOngoingDonations);
-router.get("/getPendingDonations/:id", getPendingDonations);
-router.get("/getRejectedDonations/:id", getRejectedDonations);
+// router.get("/getCompletedDonations/:id", getCompletedDonations);
+// router.get("/getOngoingDonations/:id", getOngoingDonations);
+// router.get("/getPendingDonations/:id", getPendingDonations);
+// router.get("/getRejectedDonations/:id", getRejectedDonations);
 router.get("/getOneDonation/:id", getOneDonationDetails);
 router.put("/updateDonation/:id", editDonation);
-router.post("/sendRequest", sendDonationRequest);
+// router.post("/sendRequest", sendDonationRequest);
 
 
-router.get("/getPendingRequests/:id", getPendingRequests);
-router.put("/acceptRequest/:id", acceptDonationRequest); 
-router.put("/rejectRequest/:id", rejectDonationRequest);
-router.put("/markAsCompleted/:id", markDonationAsCompleted);
-router.get("/getApprovedRequests/:id", getApprovedRequests);
-router.get("/getUserDonations/:id", getUserDonations);
+// router.get("/getPendingRequests/:id", getPendingRequests);
+// router.put("/acceptRequest/:id", acceptDonationRequest); 
+// router.put("/rejectRequest/:id", rejectDonationRequest);
+// router.put("/markAsCompleted/:id", markDonationAsCompleted);
+// router.get("/getApprovedRequests/:id", getApprovedRequests);
+// router.get("/getUserDonations/:id", getUserDonations);
 
 router.post("/test", testBase64);
 

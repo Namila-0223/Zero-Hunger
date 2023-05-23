@@ -134,7 +134,6 @@ function AppHeader() {
         width={250}
         src={LOGO}
       ></Image>
-      <Typography.Title>foodies</Typography.Title>
       
             <div className='model-box-view'>
                 <Modal

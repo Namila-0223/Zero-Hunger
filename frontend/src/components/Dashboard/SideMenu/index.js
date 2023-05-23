@@ -45,7 +45,7 @@ function SideMenu() {
             icon: <ShoppingCartOutlined />,
           },
           {
-            label: "Peofile",
+            label: "Profile",
             key: "/customers",
             icon: <UserOutlined />,
           },

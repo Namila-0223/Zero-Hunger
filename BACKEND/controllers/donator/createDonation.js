@@ -37,6 +37,7 @@ const createDonation = async (req, res) => {
       donationDescription,
       donationEndDate,
     } = req.body;
+    console.log(req.body)
     const newDonation = new Donation({
       userID,
       donationTitle,

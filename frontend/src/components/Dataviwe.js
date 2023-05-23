@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
-// import { saveAs } from 'file-saver';
+import { saveAs } from 'file-saver';
 
 
 const generateCSVReport = (data) => {
@@ -14,7 +14,7 @@ const generateCSVReport = (data) => {
 
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
 
-    // saveAs(blob, 'report.csv');
+    saveAs(blob, 'report.csv');
 };
 
 

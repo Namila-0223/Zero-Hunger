@@ -11,8 +11,19 @@ import DashNavBar from '../../components/DashNavBar';
 import { newDonation } from "../../api/donator.api";
 import { getCookie } from "../../components/common/getCookie";
 
+import { saveAs } from 'file-saver';
 
+// const generateCSVReport = (data) => {
 
+//   const csv = [
+//       Object.keys(data[0]).join(','),
+//       ...data.map(row => Object.values(row).join(','))
+//   ].join('\n');
+
+//   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+
+//   saveAs(blob, 'report.csv');
+// };
 
 
 const Donationdetails = () => {
@@ -43,6 +54,13 @@ const Donationdetails = () => {
     const navigate = useNavigate();
     const [datatable, setDatatable] = useState([]);
     const [search, setSearch] = useState("");
+
+  //   const handleGenerateReport = () => {
+  //     generateCSVReport(RowData);
+  // };
+
+
+
     const getReqOrgList = async () => {
         try {
           const data = await axios.get (`http://localhost:8090/donator/getDonations`);
@@ -106,7 +124,7 @@ const Donationdetails = () => {
         }).then((willDelete) => {
           if (willDelete) {
             axios
-              .put(`http://localhost:8090/donator/deleteDonation/${email}`)
+              .delete(`http://localhost:8090/donator/deleteDonation/${id}`)
               .then(() => {
                 if (willDelete) {
                   swal("The Donation Request Has Been Rejected!", {
@@ -181,11 +199,32 @@ const Donationdetails = () => {
           (value) => {
             if (value) setTimeout(function () {
               window.location.reload();
-            }, 3000);
+            }, 1000);
           }
         );
       });
   };
+
+  const handleDownloadFile = () => {
+    fetch("http://localhost:8090/donator/getDonations")
+        .then((res) => res.json())
+        .then((data) => {
+            const csvData = [
+                ["Donation Title", "Email", "Contact Number", "Donation Description", "Location", "Donation EndDate"],
+                ...data.map((org) => [org.donationTitle, org.email, org.contactNumber, org.donationDescription, org.location, org.donationStartDate])
+            ];
+            const csvContent = "data:text/csv;charset=utf-8," + csvData.map(e => e.join(",")).join("\n");
+            const link = document.createElement("a");
+            link.href = encodeURI(csvContent);
+            link.setAttribute("download", "donator_list.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        })
+        .catch((err) => {
+            console.log(err.message);
+        });
+};
 
     return (
         <div>
@@ -198,7 +237,7 @@ const Donationdetails = () => {
                         Add New Donation
                     </Button>
                     
-                    <Button  variant='primary' onClick={() => { handlePostShow() }}><i className='fa fa-plu'></i>
+                    <Button  variant='primary' onClick={() => { handleDownloadFile() }}><i className='fa fa-plu'></i>
                        Genarate Report
                     </Button>
                     </Space>
@@ -208,7 +247,7 @@ const Donationdetails = () => {
                 <div className='table-responsive' style={{"paddingRight":"200px","paddingLeft":"200px"}}>
                     <table className='table table-striped table-hover table-bordered'>
                         <thead>
-                            <tr>
+                            <tr style={{"border": "1px solid"}}>
                                 
                                 <th>Tital</th>
                                 <th>Email</th>
@@ -252,7 +291,7 @@ const Donationdetails = () => {
                     .map((org) => {
                     return (
                       <tr>
-                        <td>{org.donationTital}</td>
+                        <td>{org.donationTitle}</td>
                         <td>{org.email}</td>
                         <td>{org.contactNumber}</td>
                         <td>{org.donationDescription}</td>
@@ -305,7 +344,7 @@ const Donationdetails = () => {
                     <Modal.Body>
                         <div>
                             <div className='form-group'>
-                                <input type="text" className='form-control' value={RowData.donationTital} readOnly />
+                                <input type="text" className='form-control' value={RowData.donationTitle} readOnly />
                             </div>
                             <div className='form-group mt-3'>
                                 <input type="email" className='form-control' value={RowData.email} readOnly />
@@ -321,7 +360,7 @@ const Donationdetails = () => {
                             </div>
                             {
                                 Delete && (
-                                    <Button type='submit' className='btn btn-danger mt-4' onClick={onDelete}>Delete Donation</Button>
+                                    <Button type='submit' className='btn btn-danger mt-4' onClick={()=>onDelete(RowData._id)}>Delete Donation</Button>
                                 )
                             }
                         </div>
@@ -476,7 +515,7 @@ const Donationdetails = () => {
                         <div>
                             <div className='form-group'>
                                 <label>Tital</label>
-                                <input type="text" className='form-control' onChange={(e) => setdonationTitle(e.target.value)} placeholder="Please enter Tiatl" defaultValue={RowData.donationTital}/>
+                                <input type="text" className='form-control' onChange={(e) => setdonationTitle(e.target.value)} placeholder="Please enter Tiatl" defaultValue={RowData.donationTitle}/>
                             </div>
                             <div className='form-group mt-3'>
                                 <label>Email</label>
@@ -505,6 +544,7 @@ const Donationdetails = () => {
             </Space>
         </div>
     );
-};
+
+  };
 
 export default Donationdetails;
